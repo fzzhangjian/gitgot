@@ -57,7 +57,7 @@
   },
   "about": {
     "title": "About GitGot",
-    "intro": "GitGot is a curated collection of open-source project combinations. We extract practical toolchain recommendations from creator content on Douyin, Bilibili, Xiaohongshu and other platforms, and organize them into structured solution cards.",
+    "intro": "GitGot is a curated collection of open-source project combinations for real-world use cases. Every solution is tested and verified. Feedback and suggestions are welcome.",
     "mission": "Our Mission",
     "mission_desc": "There's a wealth of great creator content sharing practical open-source stacks, but it's scattered across platforms and hard to discover. GitGot aims to be the go-to aggregator — collecting, organizing, and categorizing solutions so you can find the best toolchain for any task in one place.",
     "how": "Content Sources",
@@ -67,7 +67,8 @@
       "Web Development: frontend/backend frameworks, deployment",
       "More categories coming..."
     ],
-    "belief": "Great solutions deserve to be discovered — great tools deserve to be combined."
+    "belief": "Great solutions deserve to be discovered — great tools deserve to be combined.",
+    "email": "E-mail: zjian5433@gmail.com"
   },
   "footer": {
     "tagline": "GitGot - Discover the Right GitHub Open Source Combinations",

@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server"
-import { GitFork, Target, BookOpen, Quote } from "lucide-react"
+import { GitFork, Target, BookOpen, Quote, Mail } from "lucide-react"
 
 export default async function AboutPage({
   params,
@@ -57,6 +57,15 @@ export default async function AboutPage({
             <span className="font-medium italic" style={{ color: "var(--color-gitgot-700)" }}>
               {t("belief")}
             </span>
+          </div>
+        </div>
+
+        <div className="text-center py-8 border-t border-[var(--color-border)]">
+          <div className="inline-flex items-center gap-2" style={{ color: "var(--color-text-secondary)" }}>
+            <Mail size={16} />
+            <a href="mailto:zjian5433@gmail.com" className="hover:underline">
+              zjian5433@gmail.com
+            </a>
           </div>
         </div>
       </div>
