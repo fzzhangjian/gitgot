@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "首页",
+    "solutions": "方案库",
+    "admin": "管理",
+    "login": "登录",
+    "logout": "退出"
+  },
+  "home": {
+    "title": "发现开源项目的正确组合",
+    "subtitle": "从互联网博主的实战经验中，整理 GitHub 开源项目的最佳组合方案",
+    "browse": "浏览方案库",
+    "latest": "最新方案",
+    "categories": "分类浏览",
+    "count": "{count} 个方案"
+  },
+  "solution": {
+    "detail": "方案详情",
+    "github_projects": "涉及的开源项目",
+    "source": "参考来源",
+    "platform": "来自 {platform}",
+    "by": "作者：{author}",
+    "view_source": "查看原文",
+    "verified": "已验证 GitHub 项目存在",
+    "not_verified": "待验证",
+    "share": "分享",
+    "related": "相关方案",
+    "no_projects": "暂无方案",
+    "back": "返回方案库",
+    "category": "分类"
+  },
+  "solutions": {
+    "title": "方案库",
+    "search": "搜索方案...",
+    "filter": "筛选",
+    "all": "全部",
+    "no_results": "没有找到相关方案",
+    "view_count": "{count} 次浏览"
+  },
+  "admin": {
+    "title": "管理后台",
+    "login_title": "管理员登录",
+    "login_github": "使用 GitHub 登录",
+    "login_desc": "使用你的 GitHub 账号登录以管理内容",
+    "solutions": "方案管理",
+    "new_solution": "新建方案",
+    "edit_solution": "编辑方案",
+    "delete": "删除",
+    "save": "保存",
+    "cancel": "取消",
+    "confirm_delete": "确定要删除这个方案吗？",
+    "published": "已发布",
+    "draft": "草稿",
+    "verify": "验证状态",
+    "preview": "预览"
+  },
+  "footer": {
+    "tagline": "GitGot - 发现 GitHub 开源项目的正确组合",
+    "powered": "基于 Next.js 构建",
+    "about": "GitGot 收集并整理互联网博主分享的 GitHub 开源项目组合方案，帮助你快速找到实现功能的最佳工具链。"
+  }
+}

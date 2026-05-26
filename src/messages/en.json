@@ -1,0 +1,62 @@
+{
+  "nav": {
+    "home": "Home",
+    "solutions": "Solutions",
+    "admin": "Admin",
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "home": {
+    "title": "Discover the Right GitHub Combinations",
+    "subtitle": "Curated open-source project combinations from creators across the internet — find the perfect toolchain for any task",
+    "browse": "Browse Solutions",
+    "latest": "Latest Solutions",
+    "categories": "Categories",
+    "count": "{count} solutions"
+  },
+  "solution": {
+    "detail": "Solution Details",
+    "github_projects": "Open Source Projects",
+    "source": "Source",
+    "platform": "From {platform}",
+    "by": "by {author}",
+    "view_source": "View Original",
+    "verified": "Verified on GitHub",
+    "not_verified": "Pending Verification",
+    "share": "Share",
+    "related": "Related Solutions",
+    "no_projects": "No solutions yet",
+    "back": "Back to Solutions",
+    "category": "Category"
+  },
+  "solutions": {
+    "title": "Solutions",
+    "search": "Search solutions...",
+    "filter": "Filter",
+    "all": "All",
+    "no_results": "No solutions found",
+    "view_count": "{count} views"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "login_title": "Admin Login",
+    "login_github": "Sign in with GitHub",
+    "login_desc": "Sign in with your GitHub account to manage content",
+    "solutions": "Manage Solutions",
+    "new_solution": "New Solution",
+    "edit_solution": "Edit Solution",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel",
+    "confirm_delete": "Are you sure you want to delete this solution?",
+    "published": "Published",
+    "draft": "Draft",
+    "verify": "Verification",
+    "preview": "Preview"
+  },
+  "footer": {
+    "tagline": "GitGot - Discover the Right GitHub Open Source Combinations",
+    "powered": "Powered by Next.js",
+    "about": "GitGot curates open-source project combinations shared by creators online, helping you quickly find the best toolchain for your needs."
+  }
+}
