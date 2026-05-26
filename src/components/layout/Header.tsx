@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useTranslations } from "next-intl"
 import { useLocale } from "next-intl"
@@ -21,10 +22,16 @@ export function Header() {
       <div className="container-wide flex items-center justify-between h-16">
         <Link
           href={`/${locale}`}
-          className="flex items-center gap-2 font-bold text-xl"
-          style={{ color: "var(--color-gitgot-500)" }}
+          className="flex items-center shrink-0"
         >
-          <span>GitGot</span>
+          <Image
+            src="/logo.png"
+            alt="GitGot"
+            width={120}
+            height={39}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-1">
