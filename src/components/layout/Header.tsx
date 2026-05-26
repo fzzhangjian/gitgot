@@ -41,6 +41,12 @@ export function Header() {
             {t("solutions")}
           </Link>
           <Link
+            href={`/${locale}/about`}
+            className="btn-ghost text-sm"
+          >
+            {t("about")}
+          </Link>
+          <Link
             href={`/${otherLocale}${pathWithoutLocale}`}
             className="btn-ghost text-sm"
           >
@@ -72,6 +78,13 @@ export function Header() {
               onClick={() => setMenuOpen(false)}
             >
               {t("solutions")}
+            </Link>
+            <Link
+              href={`/${locale}/about`}
+              className="btn-ghost text-sm w-full justify-start"
+              onClick={() => setMenuOpen(false)}
+            >
+              {t("about")}
             </Link>
             <Link
               href={`/${otherLocale}${pathWithoutLocale}`}
