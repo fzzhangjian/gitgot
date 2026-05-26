@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import { createClient } from "@/lib/supabase/server"
 import { ArrowLeft, ExternalLink, CheckCircle, GitFork } from "lucide-react"
 
@@ -44,7 +44,7 @@ export default async function SolutionDetailPage({
   params: Promise<{ locale: string; slug: string }>
 }) {
   const { locale, slug } = await params
-  const t = useTranslations("solution")
+  const t = await getTranslations({ locale, namespace: "solution" })
   const solution: any = await getSolution(slug)
 
   if (!solution) notFound()

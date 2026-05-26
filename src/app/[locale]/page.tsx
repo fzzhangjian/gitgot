@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { useTranslations } from "next-intl"
+import { getTranslations } from "next-intl/server"
 import { createClient } from "@/lib/supabase/server"
 import { ArrowRight, BookOpen, GitFork } from "lucide-react"
 
@@ -71,7 +71,7 @@ export default async function HomePage({
   params: Promise<{ locale: string }>
 }) {
   const { locale } = await params
-  const t = useTranslations("home")
+  const t = await getTranslations({ locale, namespace: "home" })
   const solutions = await getSolutions()
   const categories = await getCategories()
 
