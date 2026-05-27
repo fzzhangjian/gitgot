@@ -3,6 +3,7 @@ import { notFound } from "next/navigation"
 import { getTranslations } from "next-intl/server"
 import { createClient } from "@/lib/supabase/server"
 import { ArrowLeft, ExternalLink, CheckCircle, GitFork } from "lucide-react"
+import { DetailAnimations } from "@/components/PageAnimations"
 
 async function getSolution(slug: string) {
   try {
@@ -54,9 +55,10 @@ export default async function SolutionDetailPage({
 
   return (
     <div className="container-wide py-12 max-w-4xl mx-auto">
+      <DetailAnimations />
       <Link
         href={`/${locale}/solutions`}
-        className="btn-ghost text-sm mb-8 inline-flex"
+        className="btn-ghost text-sm mb-8 inline-flex back-link"
       >
         <ArrowLeft size={16} />
         {t("back")}
@@ -66,15 +68,15 @@ export default async function SolutionDetailPage({
         {solution.category && (
           <Link
             href={`/${locale}/categories/${solution.category.slug}`}
-            className="tag mb-4 inline-block"
+            className="tag mb-4 inline-block category-tag"
           >
             {locale === "zh"
               ? solution.category.name_zh
               : (solution.category.name_en || solution.category.name_zh)}
           </Link>
         )}
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">{title}</h1>
-        <p className="text-lg leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+        <h1 className="text-3xl md:text-4xl font-bold mb-4 solution-title">{title}</h1>
+        <p className="text-lg leading-relaxed solution-description" style={{ color: "var(--color-text-secondary)" }}>
           {description}
         </p>
       </div>
@@ -96,7 +98,7 @@ export default async function SolutionDetailPage({
         </div>
 
         <h2 className="text-lg font-semibold mb-4">{t("github_projects")}</h2>
-        <div className="space-y-3">
+        <div className="space-y-3 projects-section">
           {solution.projects && solution.projects.length > 0 ? (
             solution.projects.sort((a: any, b: any) => a.sort_order - b.sort_order).map((project: any) => {
               const projDesc = locale === "zh"
@@ -133,8 +135,30 @@ export default async function SolutionDetailPage({
         </div>
       </div>
 
+      {
+        (locale === "zh" ? solution.usage_zh : solution.usage_en || solution.usage_zh) && (
+          <section className="card p-6 mb-8 usage-section">
+            <h2 className="text-lg font-semibold mb-4">{t("usage_guide")}</h2>
+            <div className="space-y-3">
+              {(locale === "zh" ? solution.usage_zh : solution.usage_en || solution.usage_zh)
+                .split("\n")
+                .filter(Boolean)
+                .map((line: string, i: number) => {
+                  if (line.startsWith("## ")) {
+                    return <h3 key={i} className="text-base font-semibold mt-5 !mb-2" style={{ color: "var(--color-text-primary)" }}>{line.slice(3)}</h3>
+                  }
+                  if (line.startsWith("- ")) {
+                    return <li key={i} className="text-sm ml-4" style={{ color: "var(--color-text-secondary)" }}>{line.slice(2)}</li>
+                  }
+                  return <p key={i} className="text-sm leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>{line}</p>
+                })}
+            </div>
+          </section>
+        )
+      }
+
       {solution.source_url && (
-        <div className="card p-6">
+        <div className="card p-6 source-section">
           <h2 className="text-lg font-semibold mb-3">{t("source")}</h2>
           <div className="text-sm space-y-1" style={{ color: "var(--color-text-secondary)" }}>
             {solution.source_platform && <p>{t("platform", { platform: solution.source_platform })}</p>}

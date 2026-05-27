@@ -6,10 +6,26 @@ import { Search, ArrowRight } from "lucide-react"
 async function getSolutions(locale: string, search?: string, categorySlug?: string) {
   try {
     const supabase = await createClient()
+
+    // 先查 category_id，在数据库层过滤
+    let categoryId: string | null = null
+    if (categorySlug) {
+      const { data: category } = await supabase
+        .from("categories")
+        .select("id")
+        .eq("slug", categorySlug)
+        .single()
+      if (category) categoryId = category.id
+    }
+
     let query = supabase
       .from("solutions")
       .select("id, slug, title_zh, title_en, description_zh, description_en, view_count, published_at, category_id")
       .eq("published", true)
+
+    if (categoryId) {
+      query = query.eq("category_id", categoryId)
+    }
 
     if (search) {
       query = query.or(`title_zh.ilike.%${search}%,title_en.ilike.%${search}%,description_zh.ilike.%${search}%,description_en.ilike.%${search}%`)
@@ -19,17 +35,11 @@ async function getSolutions(locale: string, search?: string, categorySlug?: stri
 
     if (!raw) return []
 
+    // 每个方案查自己真实的 category（不覆盖）
     const solutions = await Promise.all(
       raw.map(async (s: any) => {
         let cat = null
-        if (categorySlug) {
-          const { data: c } = await supabase
-            .from("categories")
-            .select("id, name_zh, name_en, slug")
-            .eq("slug", categorySlug)
-            .single()
-          cat = c
-        } else if (s.category_id) {
+        if (s.category_id) {
           const { data: c } = await supabase
             .from("categories")
             .select("id, name_zh, name_en, slug")
@@ -41,9 +51,6 @@ async function getSolutions(locale: string, search?: string, categorySlug?: stri
       })
     )
 
-    if (categorySlug) {
-      return solutions.filter((s) => s.category?.slug === categorySlug)
-    }
     return solutions
   } catch {
     return []
@@ -101,7 +108,11 @@ export default async function SolutionsPage({
       <div className="flex flex-wrap gap-2 mb-8">
         <Link
           href={`/${locale}/solutions`}
-          className={`tag px-3 py-1.5 ${!category ? "bg-[var(--color-gitgot-500)] text-white" : ""}`}
+          className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+            !category
+              ? "bg-gitgot-500 text-white shadow-sm"
+              : "bg-gitgot-50 text-gitgot-600 hover:bg-gitgot-100"
+          }`}
         >
           {t("all")}
         </Link>
@@ -109,7 +120,11 @@ export default async function SolutionsPage({
           <Link
             key={cat.id}
             href={`/${locale}/solutions?category=${cat.slug}`}
-            className={`tag px-3 py-1.5 ${category === cat.slug ? "bg-[var(--color-gitgot-500)] text-white" : ""}`}
+            className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-200 ${
+              category === cat.slug
+                ? "bg-gitgot-500 text-white shadow-sm"
+                : "bg-gitgot-50 text-gitgot-600 hover:bg-gitgot-100"
+            }`}
           >
             {locale === "zh" ? cat.name_zh : (cat.name_en || cat.name_zh)}
           </Link>

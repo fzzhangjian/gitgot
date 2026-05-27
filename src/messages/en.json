@@ -13,7 +13,9 @@
     "browse": "Browse Solutions",
     "latest": "Latest Solutions",
     "categories": "Categories",
-    "count": "{count} solutions"
+    "count": "{count} solutions",
+    "search_placeholder": "Search solutions...",
+    "browse_more": "Browse all solutions"
   },
   "solution": {
     "detail": "Solution Details",
@@ -28,7 +30,10 @@
     "related": "Related Solutions",
     "no_projects": "No solutions yet",
     "back": "Back to Solutions",
-    "category": "Category"
+    "category": "Category",
+    "usage_guide": "Usage Guide",
+    "screenshots": "Gallery",
+    "no_screenshots": "No screenshots yet — share yours after trying!"
   },
   "solutions": {
     "title": "Solutions",

@@ -13,7 +13,9 @@
     "browse": "浏览方案库",
     "latest": "最新方案",
     "categories": "分类浏览",
-    "count": "{count} 个方案"
+    "count": "{count} 个方案",
+    "search_placeholder": "搜索方案...",
+    "browse_more": "浏览更多方案"
   },
   "solution": {
     "detail": "方案详情",
@@ -28,7 +30,10 @@
     "related": "相关方案",
     "no_projects": "暂无方案",
     "back": "返回方案库",
-    "category": "分类"
+    "category": "分类",
+    "usage_guide": "组合使用说明",
+    "screenshots": "实际效果",
+    "no_screenshots": "截图待补充 — 使用后欢迎提交反馈"
   },
   "solutions": {
     "title": "方案库",
