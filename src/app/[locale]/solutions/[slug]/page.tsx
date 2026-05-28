@@ -4,6 +4,7 @@ import { getTranslations } from "next-intl/server"
 import { createClient } from "@/lib/supabase/server"
 import { ArrowLeft, ExternalLink, CheckCircle, GitFork } from "lucide-react"
 import { DetailAnimations } from "@/components/PageAnimations"
+import { AdSlot } from "@/components/AdSense"
 
 async function getSolution(slug: string) {
   try {
@@ -174,6 +175,10 @@ export default async function SolutionDetailPage({
           </a>
         </div>
       )}
+
+      <div className="mt-8">
+        <AdSlot slot="solution_detail_banner" style={{ minHeight: "90px" }} />
+      </div>
     </div>
   )
 }

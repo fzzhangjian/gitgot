@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server"
 import { createClient } from "@/lib/supabase/server"
 import { ArrowRight, Search, GitFork } from "lucide-react"
 import { HomeAnimations } from "@/components/PageAnimations"
+import { AdSlot } from "@/components/AdSense"
 
 interface SolutionCard {
   id: string
@@ -137,6 +138,10 @@ export default async function HomePage({
            </div>
          </section>
        )}
+
+      <div className="container-wide py-4">
+        <AdSlot slot="homepage_banner" style={{ minHeight: "90px" }} />
+      </div>
 
       <section className="py-12">
         <div className="container-wide">

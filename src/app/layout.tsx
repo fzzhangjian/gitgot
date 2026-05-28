@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import { AdSenseScript } from "@/components/AdSense"
 
 export const metadata: Metadata = {
   title: {
@@ -19,5 +20,10 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return children
+  return (
+    <>
+      <AdSenseScript />
+      {children}
+    </>
+  )
 }

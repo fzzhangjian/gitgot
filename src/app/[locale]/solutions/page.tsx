@@ -2,6 +2,7 @@ import Link from "next/link"
 import { getTranslations } from "next-intl/server"
 import { createClient } from "@/lib/supabase/server"
 import { Search, ArrowRight } from "lucide-react"
+import { AdSlot } from "@/components/AdSense"
 
 async function getSolutions(locale: string, search?: string, categorySlug?: string) {
   try {
@@ -129,6 +130,10 @@ export default async function SolutionsPage({
             {locale === "zh" ? cat.name_zh : (cat.name_en || cat.name_zh)}
           </Link>
         ))}
+      </div>
+
+      <div className="mb-8">
+        <AdSlot slot="solutions_list_banner" style={{ minHeight: "90px" }} />
       </div>
 
       {solutions.length === 0 ? (
